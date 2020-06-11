@@ -29,5 +29,56 @@ k scale --replicas=3 deployment xxxxx
 -- 
 For dashboard access: 
 =====================
-a) az aks get-credentials --resource-group your-aks-rg --name myhybridoscluster --admin -a
+a) az aks get-credentials --resource-group your-aks-rg --name myhybridoscluster --admin -a 
 b) az aks browse --resource-group your-aks-rg --name myhybridoscluster
+
+Additional commands:
+- k delete ns delete-me --force --grace-period=0
+- k delete ns --namespace=foo --all
+
+===
+k get componentstatuses
+k get configmaps
+ k get endpoints
+ k get limitranges
+ k get namespaces
+ k get nodes
+ k get persistentvolumeclaims
+ k get persistentvolumes
+ k get pods
+ k get podtemplates
+ k get replicationcontrollers
+ k get resourcequotas
+ k get secrets
+ k get serviceaccounts
+ k get services
+ k get mutatingwebhookconfigurations
+ k get  validatingwebhookconfigurations
+ k get customresourcedefinitions
+ k get apiservices
+ k get controllerrevisions
+ k get daemonsets
+ k get deployments
+ k get replicasets
+ k get  statefulsets
+ k get horizontalpodautoscalers
+ k get cronjobs
+ k get jobs
+ k get certificatesigningrequests
+ k get daemonsets
+ k get deployments
+ k get ingresses
+ k get networkpolicies
+ k get  podsecuritypolicies
+ k get replicasets
+ k get networkpolicies
+ k get poddisruptionbudgets
+ k get podsecuritypolicies
+ k get clusterrolebindings
+ k get clusterroles
+ k get  rolebindings
+ k get roles
+ k get storageclasses
+ k get volumeattachments
+
+
