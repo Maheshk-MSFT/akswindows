@@ -1,0 +1,33 @@
+az login 
+
+az group create --name your-aks-rg --location eastus
+
+az aks install-cli
+
+az aks create --resource-group your-aks-rg \
+    --name myhybridoscluster --node-count 2 \
+    --enable-addons monitoring --kubernetes-version 1.16.8 \
+    --generate-ssh-keys --windows-admin-password 'P@ssw0rd1234' \
+    --windows-admin-username azureuser --vm-set-type VirtualMachineScaleSets \
+    --network-plugin azure
+	
+az aks nodepool add \
+    --resource-group your-aks-rg \
+    --cluster-name myhybridoscluster --os-type Windows \
+    --name npwin --node-count 1 --kubernetes-version 1.16.8	
+	
+az aks get-credentials --resource-group your-aks-rg --name myhybridoscluster
+
+alias k=kubectl 
+
+k get no
+k apply -f myaspdotnet.yaml
+k get service sample --watch
+k get deploy 
+k scale --replicas=3 deployment xxxxx
+
+-- 
+For dashboard access: 
+=====================
+a) az aks get-credentials --resource-group your-aks-rg --name myhybridoscluster --admin -a
+b) az aks browse --resource-group your-aks-rg --name myhybridoscluster
